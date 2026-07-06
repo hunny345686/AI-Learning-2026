@@ -21,3 +21,9 @@ export interface EmbeddingPoints {
     x: number,
     y: number
 }
+
+export interface AttentionCell  {
+    row:  string;
+    column: string;
+    value: number;
+}

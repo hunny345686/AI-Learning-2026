@@ -4,6 +4,8 @@ import TokenList from "../components/TokenList";
 import { useTokenizer } from "../hooks/useTokenizer";
 import { genrateEmbeddings } from "../utils/embedding";
 import EmbeddingChart from "../components/EmbeddingChart";
+import { generateAttention } from "../utils/attention";
+import AttentionHeatmap from "../components/AttentionHeatmap";
 
 function Home() {
   const [text, setText] = useState("");
@@ -11,6 +13,10 @@ function Home() {
   const tokens = useTokenizer(text);
 
   const embeddings = genrateEmbeddings(text.split(" ").filter(Boolean));
+
+  const tokenss = text.split(" ").filter(Boolean);
+
+  const attention = generateAttention(tokenss);
 
   return (
     <div className="min-h-screen p-10">
@@ -24,6 +30,7 @@ function Home() {
           <TokenList tokens={tokens} />
 
           <EmbeddingChart data={embeddings} />
+          <AttentionHeatmap data={attention} />
         </div>
       </div>
     </div>
