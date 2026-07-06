@@ -14,3 +14,10 @@ export interface AttentionCell {
     column: string;
     value: number;
 }
+
+
+export interface EmbeddingPoints {
+    tokens: string
+    x: number,
+    y: number
+}
